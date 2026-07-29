@@ -71,6 +71,7 @@ interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   className?: string;
   target?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 export function Button({
@@ -81,6 +82,7 @@ export function Button({
   onClick,
   className,
   target,
+  type = "button",
 }: ButtonProps) {
   const baseClasses = cn(
     "inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 cursor-pointer",
@@ -104,7 +106,7 @@ export function Button({
     );
   }
   return (
-    <button type="button" onClick={onClick as any} className={baseClasses}>
+    <button type={type} onClick={onClick as any} className={baseClasses}>
       {children}
     </button>
   );

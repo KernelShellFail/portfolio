@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basiturraza Taji | Full Stack Dev & QA Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b0f1a;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .paper-sheet {
+            position: relative;
+            background: #fff;
+            color: #1e293b;
+            box-shadow: 8px 8px 0px #fbbf24;
+            opacity: 0;
+        }
+
+        .tape {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 30px;
+            background: rgba(251, 191, 36, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .bg-blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.3;
+            border-radius: 50%;
+        }
+
+        input,
+        textarea {
+            border: 2px solid #e2e8f0;
+            padding: 8px;
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-10 text-white">
+
+    <div class="bg-blob w-64 h-64 bg-purple-600 top-10 left-10"></div>
+    <div class="bg-blob w-96 h-96 bg-blue-600 bottom-10 right-10"></div>
+
+    <div class="max-w-6xl mx-auto space-y-12">
+
+        <!-- Profile & Contact Section -->
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-10 perspective-1000">
+
+            <div class="md:col-span-1 space-y-8">
+
+                <div class="paper-sheet p-6 transform -rotate-2 hover:rotate-0 transition-all duration-500 group"
+                    id="profile-card">
+                    <div class="tape bg-pink-200/60 rotate-12"></div>
+                    <div
+                        class="relative overflow-hidden w-full aspect-square bg-slate-100 mb-4 border-2 border-dashed border-slate-300 flex items-center justify-center group-hover:border-blue-400 transition-colors">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent"></div>
+                        <img src="images/me.png" alt="basiturraza taji" class="w-full h-full object-cover">
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-blue-500/50 scanner-line"></div>
+                    </div>
+                    <span
+                        class="text-slate-400 italic font-mono text-xs uppercase tracking-widest group-hover:text-blue-500 transition-colors">
+                        User.Profile_Img</span>
+                    <h1 class="text-3xl font-black text-slate-900 tracking-tighter uppercase leading-none">Basiturraza
+                        <span class="text-blue-600">Taji</span>
+                    </h1>
+                    <p class="font-mono text-[10px] uppercase mt-2 text-slate-500 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Available for Projects
+                        2026
+                    </p>
+                </div>
+
+                <div class="paper-sheet p-6 shadow-xl transform rotate-1 bg-yellow-400 text-black border-2 border-black contact-hover-trigger"
+                    id="contact-card">
+                    <h2
+                        class="text-xl font-black mb-4 border-b-2 border-black uppercase italic italic tracking-tighter">
+                        Direct Access</h2>
+                    <div class="text-xs space-y-3 font-bold font-mono">
+                        <div class="flex items-center gap-2 hover:translate-x-2 transition-transform cursor-pointer">
+                            <span>📍</span> Nagpur, MH, IN
+                        </div>
+                        <div class="flex items-center gap-2 hover:translate-x-2 transition-transform cursor-pointer">
+                            <span>📞</span> +91 90226 95311
+                        </div>
+                        <a href="mailto:basiturraza@gmail.com"
+                            class="flex items-center gap-2 hover:translate-x-2 transition-transform block">
+                            <span>📧</span> basiturraza@gmail.com
+                        </a>
+                        <a href="https://github.com/KernelShellFail" target="_blank"
+                            class="flex items-center gap-2 hover:translate-x-2 transition-transform block bg-black text-white p-2 rounded">
+                            <span>🐙</span> /KernelShellFail
+                        </a>
+                    </div>
+                </div>
+
+                <div class="paper-sheet p-6 transform -rotate-1 border-b-4 border-blue-600" id="skills-card">
+                    <h2
+                        class="bg-black text-white inline-block px-3 py-1 mb-6 font-black text-[10px] uppercase tracking-widest">
+                        Tech Proficiency</h2>
+                    <div class="space-y-5">
+                        <div class="skill-container">
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-1"><span>Full Stack /
+                                    PHP</span><span>95%</span></div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="skill-bar bg-blue-600 h-full w-0" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-container">
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-1"><span>Creative
+                                    Suite</span><span>90%</span></div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="skill-bar bg-pink-500 h-full w-0" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-container">
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-1"><span>QA /
+                                    Debugging</span><span>88%</span></div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="skill-bar bg-green-500 h-full w-0" data-width="88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-container">
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-1">
+                                <span>HTML / CSS</span><span>95%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="skill-bar bg-orange-500 h-full w-0" data-width="95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-container">
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-1">
+                                <span>C++ / Java</span><span>80%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="skill-bar bg-indigo-600 h-full w-0" data-width="80%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-container">
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-1">
+                                <span>Python</span><span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="skill-bar bg-yellow-400 h-full w-0" data-width="90%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 paper-sheet p-10 transform rotate-1 border-r-8 border-pink-500" id="about-card">
+                <div class="tape bg-yellow-200/50 -top-4"></div>
+
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="bg-pink-500 text-white px-4 py-1 font-black text-xl skew-x-[-12deg] shadow-lg">EXECUTIVE
+                        SUMMARY</h2>
+                    <span class="font-mono text-[10px] text-slate-400">VER. 2.0.26</span>
+                </div>
+
+                <div class="prose prose-slate max-w-none">
+                    <p class="text-2xl font-black leading-tight text-slate-900 mb-6">
+                        "I don't just write code; I architect <span
+                            class="text-blue-600 underline decoration-wavy">digital solutions</span> that survive the
+                        real world."
+                    </p>
+
+                    <p class="text-sm leading-relaxed text-slate-600 mb-6">
+                        Currently pursuing a <strong>BCA (2023-2026)</strong> at VMV College, I occupy the rare
+                        intersection of <strong>Backend Engineering</strong> and <strong>Visual Storytelling</strong>.
+                        My approach is rooted in <strong>Consultancy-Driven Development</strong>—I solve the business
+                        logic before I touch the keyboard.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div
+                            class="p-5 bg-blue-50/50 rounded-xl border-t-4 border-blue-500 shadow-sm transform transition hover:-translate-y-1">
+                            <h4 class="font-black text-xs uppercase mb-2 text-blue-700">The Dev Philosophy</h4>
+                            <p class="text-[11px] leading-relaxed text-slate-600">
+                                I specialize in <strong>Legacy Refactoring</strong>. If your PHP environment is sluggish
+                                or insecure, I rebuild it into a modular, high-speed ecosystem designed for 2026
+                                standards.
+                            </p>
+                        </div>
+                        <div
+                            class="p-5 bg-pink-50/50 rounded-xl border-t-4 border-pink-500 shadow-sm transform transition hover:-translate-y-1">
+                            <h4 class="font-black text-xs uppercase mb-2 text-pink-700">The Creative Edge</h4>
+                            <p class="text-[11px] leading-relaxed text-slate-600">
+                                With deep expertise in <strong>Adobe & CorelDRAW</strong>, I bridge the gap between
+                                Figma mockups and production code, ensuring 100% brand consistency from print to pixel.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative p-6 bg-slate-900 rounded-lg overflow-hidden mb-8">
+                        <div class="absolute top-0 right-0 p-2 opacity-10 text-white text-4xl font-black">QA</div>
+                        <p class="text-sm leading-relaxed text-slate-300 italic border-l-4 border-green-400 pl-4">
+                            Beyond the build, I am a <strong>Software QA Strategist</strong>. I hunt for edge-case bugs
+                            that standard automation misses. By stress-testing my own builds—like the <span
+                                class="text-green-400 font-bold underline">Rental Management System</span>—I ensure
+                            every deployment is production-hardened.
+                        </p>
+                    </div>
+
+                    <p class="text-sm leading-relaxed text-slate-600 font-medium">
+                        Whether it's building a custom CRM from scratch or troubleshooting complex software logic, I
+                        provide a <strong>consultancy-first mindset</strong> that prioritizes scalability, security, and
+                        superior user experience.
+                    </p>
+                </div>
+
+
+                <div class="flex flex-wrap gap-6 mt-12 relative py-4">
+
+                    <a href="https://kernelshellfail.github.io/Rental/" target="_blank"
+                        class="sticker group relative bg-blue-600 text-white px-6 py-3 text-xs font-black uppercase tracking-tighter -rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 shadow-[4px_4px_0px_black] active:shadow-none">
+                        <span class="relative z-10 flex items-center gap-2">
+                            🚀 DEPLOYED: RENTAL APP
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </span>
+                        <div
+                            class="absolute inset-0 bg-blue-700 -z-10 translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/KernelShellFail" target="_blank"
+                        class="sticker bg-slate-900 text-white p-4 rounded-full border-4 border-dashed border-slate-500 rotate-12 hover:rotate-0 hover:scale-110 transition-all shadow-lg flex items-center justify-center">
+                        <span class="font-black text-[10px] tracking-widest uppercase">Source_Code.git</span>
+                    </a>
+
+                    <div
+                        class="sticker bg-white border-[3px] border-black text-black px-4 py-2 text-[10px] font-black uppercase tracking-tighter rotate-3 shadow-[4px_4px_0px_#fbbf24] hover:-translate-y-1 transition-transform">
+                        <div class="border-b border-black mb-1 pb-1">📍 ORIGIN: NAGPUR</div>
+                        <div class="flex justify-between"><span>IN</span><span>440032</span></div>
+                    </div>
+
+                    <div
+                        class="sticker bg-pink-500 text-white px-5 py-3 text-xs font-black uppercase tracking-tighter -rotate-2 outline outline-2 outline-white outline-offset-[-4px] shadow-xl hover:bg-pink-600 transition-colors">
+                        🎨 PIXEL_EXPERT [ADOBE]
+                    </div>
+
+                    <div
+                        class="sticker bg-green-400 text-black px-4 py-2 text-xs font-black uppercase tracking-tighter -rotate-12 hover:rotate-0 transition-transform cursor-default">
+                        🎓 CLASS OF 2026
+                    </div>
+
+                    <div
+                        class="sticker bg-purple-600 text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest rotate-6 border-2 border-white flex items-center gap-2 hover:skew-x-6 transition-transform">
+                        <span class="animate-pulse text-sm">👾</span> BUG_HUNTER.exe
+                    </div>
+
+                    <div
+                        class="sticker bg-slate-800 text-green-400 px-4 py-2 text-[10px] font-mono border-l-4 border-green-400 -rotate-3 hover:rotate-0 hover:scale-105 transition-transform shadow-lg">
+                        <span class="opacity-50">#include</span> &lt;success&gt;
+                    </div>
+
+                    <div
+                        class="sticker bg-[#FFD43B] text-slate-900 px-5 py-2 text-xs font-black uppercase tracking-tighter rotate-6 rounded-md border-2 border-slate-900 hover:-rotate-1 transition-transform shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+                        🐍 PYTHON_GURU
+                    </div>
+
+                    <div
+                        class="sticker bg-red-600 text-white w-12 h-12 flex items-center justify-center rounded-full border-2 border-white -rotate-12 hover:rotate-12 transition-transform shadow-md font-black text-[10px] uppercase tracking-widest">
+                        JAVA
+                    </div>
+
+                    <div
+                        class="sticker bg-orange-500 text-white px-3 py-1 text-[10px] font-black uppercase tracking-widest rotate-3 skew-x-[-10deg] border-2 border-black hover:skew-x-0 transition-transform">
+                        &lt;/&gt; FRONTEND_WIZ
+                    </div>
+
+                    <div
+                        class="sticker bg-cyan-400 text-black px-4 py-2 text-[10px] font-black uppercase rounded-lg border-2 border-dashed border-black -rotate-6 flex items-center gap-1 hover:-translate-y-1 transition-transform">
+                        <span>🗄️</span> SQL + NoSQL
+                    </div>
+
+                    <div
+                        class="sticker bg-black text-white px-4 py-1 text-[10px] font-mono rotate-2 border border-white hover:bg-slate-800 transition-colors cursor-pointer">
+                        $ sudo_admin
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <script>
+            // 1. Entrance Animation
+            anime.timeline({
+                easing: 'easeOutExpo',
+            })
+                .add({
+                    targets: '.paper-sheet',
+                    translateY: [100, 0],
+                    opacity: [0, 1],
+                    delay: anime.stagger(150),
+                    duration: 1200
+                })
+                .add({
+                    targets: '.skill-bar',
+                    width: el => el.getAttribute('data-width'),
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }, '-=800');
+
+            // 2. Continuous Photo Scanner Animation
+            anime({
+                targets: '.scanner-line',
+                top: ['0%', '100%'],
+                duration: 2000,
+                direction: 'alternate',
+                loop: true,
+                easing: 'linear'
+            });
+
+            // 3. Mouse Parallax Effect for About Card
+            // const aboutCard = document.querySelector('#about-card');
+            // document.addEventListener('mousemove', (e) => {
+            //     const x = (window.innerWidth / 2 - e.pageX) / 50;
+            //     const y = (window.innerHeight / 2 - e.pageY) / 50;
+            //     aboutCard.style.transform = `rotateY(${x}deg) rotateX(${y}deg) rotate(1deg)`;
+            // });
+
+            // 4. Contact Card Hover Wobble
+            document.querySelector('.contact-hover-trigger').addEventListener('mouseenter', () => {
+                anime({
+                    targets: '#contact-card',
+                    scale: 1.05,
+                    rotate: '0deg',
+                    duration: 400
+                });
+            });
+            document.querySelector('.contact-hover-trigger').addEventListener('mouseleave', () => {
+                anime({
+                    targets: '#contact-card',
+                    scale: 1,
+                    rotate: '1deg',
+                    duration: 400
+                });
+            });
+        </script>
+
+        <!-- Services & Key Features Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden py-10">
+
+            <div class="paper-sheet p-8 transform rotate-1 border-t-4 border-indigo-500" id="services-card">
+                <div class="tape bg-indigo-200/50"></div>
+
+                <h2
+                    class="bg-indigo-600 text-white inline-block px-4 py-1 mb-8 font-black text-xl italic uppercase tracking-wider skew-x-[-10deg]">
+                    Premium Services
+                </h2>
+
+                <div class="space-y-6">
+                    <div
+                        class="service-item flex items-start gap-4 p-3 hover:bg-indigo-50 transition-colors rounded-lg border border-transparent hover:border-indigo-100 group">
+                        <div class="text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12">💻</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-indigo-900 uppercase">Full Stack PHP</h3>
+                                <span
+                                    class="text-[10px] bg-indigo-100 text-indigo-600 px-2 py-0.5 rounded font-bold">LATEST
+                                    STACK</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 leading-relaxed">End-to-end web architecture using PHP
+                                8.x, secure MySQL schemas, and reactive frontends.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="service-item flex items-start gap-4 p-3 hover:bg-pink-50 transition-colors rounded-lg border border-transparent hover:border-pink-100 group">
+                        <div class="text-3xl transition-transform group-hover:scale-125 group-hover:rotate-[-12deg]">🎨
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-pink-900 uppercase">Creative Suite</h3>
+                                <span
+                                    class="text-[10px] bg-pink-100 text-pink-600 px-2 py-0.5 rounded font-bold">EXPERT</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 leading-relaxed">High-fidelity branding assets and
+                                vector layouts via Adobe Illustrator & CorelDRAW.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="service-item flex items-start gap-4 p-3 hover:bg-green-50 transition-colors rounded-lg border border-transparent hover:border-green-100 group">
+                        <div class="text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12">🛡️</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-green-900 uppercase">Quality Assurance</h3>
+                                <span
+                                    class="text-[10px] bg-green-100 text-green-600 px-2 py-0.5 rounded font-bold">99.9%
+                                    UPTIME</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 leading-relaxed">Exposing vulnerabilities through
+                                black-box testing and automated regression suites.</p>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="service-item flex items-start gap-4 p-3 hover:bg-yellow-50 transition-colors rounded-lg border border-transparent hover:border-yellow-100 group">
+                        <div class="text-3xl transition-transform group-hover:scale-125 group-hover:rotate-[-12deg]">🐍
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-yellow-900 uppercase">Python Solutions</h3>
+                                <span
+                                    class="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded font-bold">AUTOMATION</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                                Rapid scripting, data processing pipelines, and scalable backend logic using Django or
+                                Flask.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="service-item flex items-start gap-4 p-3 hover:bg-red-50 transition-colors rounded-lg border border-transparent hover:border-red-100 group">
+                        <div class="text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12">☕</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-red-900 uppercase">OOP Architecture</h3>
+                                <span
+                                    class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">ROBUST</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                                Building strictly typed, high-performance applications with Java and C++ design
+                                patterns.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="service-item flex items-start gap-4 p-3 hover:bg-sky-50 transition-colors rounded-lg border border-transparent hover:border-sky-100 group">
+                        <div class="text-3xl transition-transform group-hover:scale-125 group-hover:rotate-[-12deg]">⚡
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-sky-900 uppercase">Modern Interface</h3>
+                                <span class="text-[10px] bg-sky-100 text-sky-700 px-2 py-0.5 rounded font-bold">UI /
+                                    UX</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                                Crafting responsive, pixel-perfect layouts using Semantic HTML5, CSS3, and modern
+                                JavaScript.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paper-sheet p-8 transform -rotate-1 bg-[#fffdf0] border-2 border-dashed border-yellow-300"
+                id="features-card">
+                <h2
+                    class="bg-black text-white inline-block px-4 py-1 mb-8 font-black text-xl uppercase italic tracking-widest">
+                    Key Features
+                </h2>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Code Consultancy</h4>
+                            <p class="text-[11px] text-gray-500 italic">Structural refactoring & logic optimization.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Pixel Perfection</h4>
+                            <p class="text-[11px] text-gray-500 italic">Seamless UI-to-Code translation.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Agile Bug Hunting</h4>
+                            <p class="text-[11px] text-gray-500 italic">Rapid deployment of hotfixes & patches.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Vibe Matching</h4>
+                            <p class="text-[11px] text-gray-500 italic">Not only the codes, But Fixing the Vibe too.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">System Synergy</h4>
+                            <p class="text-[11px] text-gray-500 italic">Seamless REST API hooks & 3rd-party
+                                integrations.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Fortress Logic</h4>
+                            <p class="text-[11px] text-gray-500 italic">OWASP-compliant security & data protection.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Latency Killer</h4>
+                            <p class="text-[11px] text-gray-500 italic">Asset optimization for sub-second load times.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box flex items-center gap-4 group">
+                        <div
+                            class="feature-check w-8 h-8 rounded border-2 border-black flex items-center justify-center transition-all group-hover:bg-black group-hover:text-white">
+                            <span class="font-bold opacity-0 group-hover:opacity-100">✓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase">Schema Mastery</h4>
+                            <p class="text-[11px] text-gray-500 italic">Normalized SQL structures & efficient queries.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div
+                    class="mt-10 pt-8 border-t-4 border-black border-dashed flex flex-wrap justify-center items-center gap-6 relative">
+
+                    <div
+                        class="absolute -top-3 bg-white px-3 font-black text-[10px] tracking-[0.2em] uppercase text-gray-400">
+                        System Status
+                    </div>
+
+                    <div
+                        class="group relative flex items-center gap-3 bg-white border-2 border-black px-5 py-3 rounded-full shadow-[4px_4px_0px_#dcfce7] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-default">
+                        <span class="relative flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <div class="flex flex-col leading-none">
+                            <span class="font-black text-[10px] uppercase tracking-widest text-gray-800">Available For
+                                Hire</span>
+                            <span class="text-[9px] font-bold text-green-600 font-mono">Target: 2026</span>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="relative bg-black text-white px-8 py-3 rounded-full border-2 border-black shadow-[4px_4px_0px_#fbbf24] hover:bg-yellow-400 hover:text-black hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200">
+                        <span class="font-black text-xs uppercase tracking-widest flex items-center gap-2">
+                            🚀 Download CV
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <script>
+            // Add these to your window.onload anime.js block
+
+            // Service Items Entrance (Cascading fade-in)
+            anime({
+                targets: '.service-item',
+                translateX: [-30, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(150, { start: 1200 }),
+                easing: 'easeOutQuad'
+            });
+
+            // Checklist "Check" Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: '.feature-check span',
+                            opacity: [0, 1],
+                            scale: [0.5, 1],
+                            delay: anime.stagger(200),
+                            easing: 'easeOutBack'
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(document.querySelector('#features-card'));
+        </script>
+
+
+        <!-- Professional Impact Section -->
+        <section class="relative">
+            <div class="paper-sheet p-8 transform -rotate-1 bg-white border-l-8 border-indigo-600 shadow-2xl"
+                id="exp-card">
+                <div
+                    class="absolute top-4 right-4 border-4 border-double border-indigo-200 text-indigo-200 px-2 py-1 font-black uppercase text-xs rotate-12 select-none">
+                    Technical Audit Passed
+                </div>
+
+                <h2
+                    class="bg-indigo-600 text-white inline-block px-6 py-2 mb-8 font-black text-xl uppercase italic tracking-widest shadow-lg">
+                    Professional Impact
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div
+                        class="relative group p-4 border border-transparent hover:border-indigo-100 hover:bg-indigo-50/50 transition-all rounded-lg">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center bug-icon">
+                                <span class="text-xl">🐞</span>
+                            </div>
+                            <h3 class="font-black text-lg text-indigo-900 uppercase">Software QA & Testing</h3>
+                        </div>
+                        <p class="text-sm leading-relaxed text-gray-600">
+                            Expertise in identifying <span class="bg-yellow-100 px-1 font-mono">edge-case bugs</span>
+                            and performance bottlenecks. I implement rigorous unit testing and automated QA flows to
+                            guarantee <span class="font-bold">99.9% cross-browser stability</span>.
+                        </p>
+                    </div>
+
+                    <div
+                        class="relative group p-4 border border-transparent hover:border-indigo-100 hover:bg-indigo-50/50 transition-all rounded-lg">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
+                                <span class="text-xl">📋</span>
+                            </div>
+                            <h3 class="font-black text-lg text-indigo-900 uppercase">Code Consultancy</h3>
+                        </div>
+                        <p class="text-sm leading-relaxed text-gray-600">
+                            High-level architectural auditing for <span
+                                class="underline decoration-indigo-400 decoration-2">PHP/MySQL systems</span>. I
+                            refactor legacy codebases into modern, scalable architectures while implementing strict
+                            security protocols.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-slate-900 rounded-lg p-1 shadow-2xl transform transition-transform hover:scale-[1.01]"
+                    id="terminal-project">
+                    <div class="flex gap-1.5 p-3 border-b border-slate-800">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-[10px] font-mono text-slate-500 ml-2 italic">bash —
+                            ./launch_rental_app.sh</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-indigo-400 font-mono font-bold text-lg mb-1">Rental Management System</h3>
+                        <div class="flex items-center gap-4 text-xs font-mono mb-4">
+                            <span class="text-green-400">[STACK] PHP, MySQL, Tailwind</span>
+                            <span class="text-blue-400">[STATUS] Production Ready</span>
+                        </div>
+                        <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                            Developed a high-availability rental ecosystem featuring real-time availability tracking,
+                            dynamic reporting modules, and multi-tier user authentication.
+                        </p>
+                        <a href="https://kernelshellfail.github.io/Rental/" target="_blank"
+                            class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs px-4 py-2 rounded transition-colors uppercase tracking-widest">
+                            Execute Project &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Add this to your Anime.js script block
+
+            // Bug icon jitter animation
+            anime({
+                targets: '.bug-icon',
+                translateX: [-1, 1],
+                rotate: [-5, 5],
+                duration: 100,
+                direction: 'alternate',
+                loop: true,
+                easing: 'easeInOutSine'
+            });
+
+            // Terminal Entrance
+            anime({
+                targets: '#terminal-project',
+                translateY: [20, 0],
+                opacity: [0, 1],
+                delay: 1500,
+                duration: 1000,
+                easing: 'easeOutQuart'
+            });
+        </script>
+
+        <!-- Design Expertise Section -->
+        <section class="relative group">
+            <div class="paper-sheet p-8 transform rotate-1 bg-white border-2 border-gray-100" id="creative-card">
+                <div class="tape bg-pink-300/60 rotate-12 -translate-x-12"></div>
+                <div class="tape bg-pink-400/40 -rotate-6 translate-x-10"></div>
+
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="flex-1">
+                        <h2
+                            class="bg-gradient-to-r from-pink-500 to-rose-500 text-white inline-block px-4 py-1 mb-4 font-bold text-xl skew-x-[-10deg] shadow-lg">
+                            DESIGN EXPERTISE
+                        </h2>
+                        <p class="text-sm leading-relaxed text-slate-700">
+                            <span class="font-black text-pink-600">Adobe Creative Suite & CorelDRAW Expert:</span><br>
+                            Merging high-end desktop publishing with modern UI/UX principles. I transform complex ideas
+                            into production-ready assets for both print and digital ecosystems.
+                        </p>
+
+                        <div
+                            class="mt-4 inline-block border-2 border-dashed border-pink-400 px-3 py-1 rounded-full text-[10px] font-bold text-pink-500 uppercase tracking-widest rotate-2">
+                            Verified Pixel Perfectionist
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-32 flex flex-col gap-2">
+                        <div class="flex gap-1 mb-2">
+                            <div class="w-6 h-6 rounded-full bg-[#FF007A] shadow-inner swatch"></div>
+                            <div class="w-6 h-6 rounded-full bg-[#000000] shadow-inner swatch"></div>
+                            <div class="w-6 h-6 rounded-full bg-[#00EAFF] shadow-inner swatch"></div>
+                        </div>
+
+                        <div
+                            class="relative w-24 h-24 bg-gray-100 border border-gray-300 p-1 transform rotate-6 shadow-md hover:rotate-0 transition-transform duration-300">
+                            <div
+                                class="w-full h-16 bg-gradient-to-tr from-pink-400 to-purple-500 flex items-center justify-center text-white text-xs font-bold">
+                                Ps / Ai
+                            </div>
+                            <div class="text-[8px] mt-1 text-center font-mono text-gray-500 italic">CorelDRAW.cdr</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Add this to your existing window.onload anime.js block
+            anime({
+                targets: '#creative-card .swatch',
+                scale: [0, 1],
+                opacity: [0, 1],
+                delay: anime.stagger(100, { start: 1800 }), // Appears after main entrance
+                easing: 'easeOutBack'
+            });
+
+            // Hover effect for the card
+            const card = document.querySelector('#creative-card');
+            card.addEventListener('mouseenter', () => {
+                anime({
+                    targets: card,
+                    rotate: '0deg',
+                    scale: 1.02,
+                    duration: 400
+                });
+            });
+            card.addEventListener('mouseleave', () => {
+                anime({
+                    targets: card,
+                    rotate: '1deg',
+                    scale: 1,
+                    duration: 400
+                });
+            });
+        </script>
+
+
+        <!-- Contact Form & Address Section -->
+
+
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 font-mono">
+            <div class="md:col-span-2 paper-sheet p-8 transform rotate-1 transition-all duration-500"
+                id="contact-container">
+                <div id="form-content">
+                    <h2
+                        class="bg-green-500 text-white inline-block px-3 py-1 mb-6 font-bold text-lg uppercase shadow-md">
+                        Drop a Secret Note 📝
+                    </h2>
+                    <p class="text-sm mb-6 italic text-gray-600">No boring forms here. Just tell me who you are and
+                        what's on your mind!</p>
+
+                    <form id="fun-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="border-b-2 border-black">
+                                <label class="text-[10px] font-bold uppercase block text-gray-400">Your Alias</label>
+                                <input type="text" id="user-name" required
+                                    class="w-full bg-transparent outline-none pb-1 placeholder-gray-300"
+                                    placeholder="Captain Awesome">
+                            </div>
+                            <div class="border-b-2 border-black">
+                                <label class="text-[10px] font-bold uppercase block text-gray-400">Digital
+                                    Coordinates</label>
+                                <input type="email" id="user-email" required
+                                    class="w-full bg-transparent outline-none pb-1 placeholder-gray-300"
+                                    placeholder="email@universe.com">
+                            </div>
+                        </div>
+                        <div class="border-b-2 border-black">
+                            <label class="text-[10px] font-bold uppercase block text-gray-400">The Mission
+                                Details</label>
+                            <textarea id="user-message" rows="3" required
+                                class="w-full bg-transparent outline-none pb-1 placeholder-gray-300 resize-none"
+                                placeholder="I have a brilliant idea for..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="bg-black text-white px-8 py-3 font-bold uppercase hover:bg-green-600 hover:scale-105 transition-all flex items-center gap-2">
+                            Launch Paper Plane ✈️
+                        </button>
+                    </form>
+                </div>
+
+                <div id="success-message" class="hidden text-center py-10 animate-pulse">
+                    <h3 class="text-2xl font-bold mb-4 text-green-600">Whoosh! ✈️</h3>
+                    <p class="mb-6">Message launched into the atmosphere! Since this is a static site, I haven't caught
+                        it in a database yet.</p>
+                    <div class="flex flex-col md:flex-row justify-center gap-4">
+                        <a id="whatsapp-link" href="#" target="_blank"
+                            class="bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600">Chat on
+                            WhatsApp</a>
+                        <a id="email-link" href="#"
+                            class="bg-blue-500 text-white px-4 py-2 rounded font-bold hover:bg-blue-600">Send Direct
+                            Email</a>
+                    </div>
+                    <button onclick="resetForm()" class="mt-8 text-xs underline uppercase">Write another note</button>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 paper-sheet p-6 transform -rotate-1 bg-blue-50 border-l-4 border-blue-400"
+                id="address-card">
+                <div class="tape"></div>
+                <h2 class="font-bold border-b border-black mb-4 italic">The Secret HQ</h2>
+                <p class="text-sm leading-loose">
+                    📍 <strong>Base:</strong><br>
+                    NIT Block A/20, Nandanvan<br>
+                    Nagpur - 440009, IN<br><br>
+                    📞 <strong>Signal:</strong> +91 90226 95311<br>
+                    📧 <strong>Ping:</strong> basiturraza@gmail.com
+                </p>
+                <div
+                    class="mt-6 border-2 border-dashed border-blue-300 p-2 text-center text-[10px] uppercase font-bold text-blue-400">
+                    Scanning for signals in Nagpur...
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const form = document.getElementById('fun-form');
+            const formContent = document.getElementById('form-content');
+            const successMessage = document.getElementById('success-message');
+            const container = document.getElementById('contact-container');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get values
+                const name = document.getElementById('user-name').value;
+                const msg = document.getElementById('user-message').value;
+                const phone = "919022695311"; // Your WhatsApp number
+
+                // Prepare links
+                const waText = `Hi Basit! I'm ${name}. ${msg}`;
+                document.getElementById('whatsapp-link').href = `https://wa.me/${phone}?text=${encodeURIComponent(waText)}`;
+                document.getElementById('email-link').href = `mailto:basiturraza@gmail.com?subject=Contact from ${name}&body=${msg}`;
+
+                // Animation Effect
+                container.style.transform = "rotate(0deg) scale(0.95)";
+                formContent.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            });
+
+            function resetForm() {
+                formContent.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+                container.style.transform = "rotate(1deg) scale(1)";
+                form.reset();
+            }
+        </script>
+    </div>
+
+    <script>
+        window.onload = () => {
+            // Entrance animation for paper elements
+            anime({
+                targets: '.paper-sheet',
+                translateY: [100, 0],
+                rotate: function (el, i) { return i % 2 === 0 ? -2 : 1; },
+                opacity: [0, 1],
+                delay: anime.stagger(150),
+                duration: 1500,
+                easing: 'easeOutElastic(1, .8)'
+            });
+
+            // Skill bar filling animation
+            anime({
+                targets: '.skill-bar',
+                width: function (el) { return el.getAttribute('data-width'); },
+                delay: 1000,
+                duration: 2000,
+                easing: 'easeInOutQuart'
+            });
+        };
+    </script>
+</body>
+
+</html>

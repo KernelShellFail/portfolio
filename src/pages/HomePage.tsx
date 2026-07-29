@@ -4,6 +4,7 @@ import { About } from "../components/sections/About";
 import { Skills } from "../components/sections/Skills";
 import { Projects } from "../components/sections/Projects";
 import { Services } from "../components/sections/Services";
+import { Mentorship } from "../components/sections/Mentorship";
 import { Contact } from "../components/sections/Contact";
 
 export function HomePage() {
@@ -19,6 +20,7 @@ export function HomePage() {
       <Skills />
       <Projects />
       <Services />
+      <Mentorship />
       <Contact />
     </motion.div>
   );

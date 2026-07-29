@@ -6,7 +6,7 @@ export interface Project {
   techStack: string[];
   liveUrl: string;
   githubUrl: string;
-  image: string;
+  image?: string;
   category: string;
   featured: boolean;
   status: string;
@@ -27,7 +27,6 @@ export const projects: Project[] = [
     techStack: ["Next.js", "Tailwind CSS", "Supabase", "TypeScript"],
     liveUrl: "https://github.com/KernelShellFail/Nagpur-E-Commerce",
     githubUrl: "https://github.com/KernelShellFail/Nagpur-E-Commerce",
-    image: "/images/some.jpg",
     category: "E-Commerce",
     featured: true,
     status: "Production Ready",
@@ -65,7 +64,7 @@ export const projects: Project[] = [
     techStack: ["Next.js", "Tailwind CSS", "PocketBase", "TypeScript"],
     liveUrl: "https://github.com/KernelShellFail/ishant-ecom",
     githubUrl: "https://github.com/KernelShellFail/ishant-ecom",
-    image: "/images/some.jpg",
+    
     category: "E-Commerce",
     featured: true,
     status: "Production Ready",
@@ -103,7 +102,7 @@ export const projects: Project[] = [
     techStack: ["PHP", "MySQL", "JavaScript", "Tailwind CSS"],
     liveUrl: "https://github.com/KernelShellFail/FoodDelivery",
     githubUrl: "https://github.com/KernelShellFail/FoodDelivery",
-    image: "/images/some.jpg",
+    
     category: "Full Stack",
     featured: true,
     status: "Development",
@@ -141,7 +140,7 @@ export const projects: Project[] = [
     techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     liveUrl: "https://github.com/KernelShellFail/RailwayManagement",
     githubUrl: "https://github.com/KernelShellFail/RailwayManagement",
-    image: "/images/some.jpg",
+    
     category: "Full Stack",
     featured: false,
     status: "Development",
@@ -179,7 +178,7 @@ export const projects: Project[] = [
     techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     liveUrl: "https://github.com/KernelShellFail/PlayerAuction",
     githubUrl: "https://github.com/KernelShellFail/PlayerAuction",
-    image: "/images/some.jpg",
+    
     category: "Full Stack",
     featured: false,
     status: "Development",
@@ -217,7 +216,7 @@ export const projects: Project[] = [
     techStack: ["JavaScript", "Node.js", "Chrome Extensions API", "Google Gemini AI"],
     liveUrl: "https://github.com/KernelShellFail/impulse-guard",
     githubUrl: "https://github.com/KernelShellFail/impulse-guard",
-    image: "/images/some.jpg",
+    
     category: "Browser Extension",
     featured: true,
     status: "Development",
@@ -255,7 +254,7 @@ export const projects: Project[] = [
     techStack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
     liveUrl: "https://github.com/KernelShellFail/CodePath",
     githubUrl: "https://github.com/KernelShellFail/CodePath",
-    image: "/images/some.jpg",
+    
     category: "Education",
     featured: true,
     status: "Development",
@@ -293,7 +292,7 @@ export const projects: Project[] = [
     techStack: ["TypeScript", "Discord.js", "Prisma ORM", "Node.js"],
     liveUrl: "https://github.com/KernelShellFail/DiscordBot",
     githubUrl: "https://github.com/KernelShellFail/DiscordBot",
-    image: "/images/some.jpg",
+    
     category: "Bot",
     featured: false,
     status: "Production Ready",
@@ -331,7 +330,7 @@ export const projects: Project[] = [
     techStack: ["JavaScript", "HTML", "CSS", "Canvas API"],
     liveUrl: "https://kernelshellfail.github.io/HerBirthday/",
     githubUrl: "https://github.com/KernelShellFail/HerBirthday",
-    image: "/images/some.jpg",
+    
     category: "Creative",
     featured: false,
     status: "Production Ready",
@@ -369,7 +368,7 @@ export const projects: Project[] = [
     techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     liveUrl: "https://kernelshellfail.github.io/Rental/",
     githubUrl: "https://github.com/KernelShellFail/Rental",
-    image: "/images/some.jpg",
+    
     category: "Full Stack",
     featured: true,
     status: "Production Ready",

@@ -27,12 +27,23 @@ export function Projects() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="relative overflow-hidden aspect-video lg:aspect-auto">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full min-h-[200px] lg:min-h-full bg-gradient-to-br from-accent/20 via-purple-500/10 to-pink-500/20 flex items-center justify-center">
+                      <div className="text-center p-6">
+                        <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-3">
+                          <span className="text-2xl font-bold text-accent">{project.title.charAt(0)}</span>
+                        </div>
+                        <p className="text-sm text-muted font-medium">{project.category}</p>
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent" />
 
                   {/* Status badge */}

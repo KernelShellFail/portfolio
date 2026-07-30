@@ -1,4 +1,4 @@
-import { useState, useCallback, type FormEvent } from "react";
+import { useState, useCallback, useEffect, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code2, Palette, FileJson, FileCode, Atom, Globe, Server, Route,
@@ -683,40 +683,42 @@ export function Mentorship() {
     ? technologies
     : technologies.filter((t) => t.category === filter);
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        name: personalData.fullName,
-        givenName: personalData.name,
-        familyName: personalData.lastName,
-        email: personalData.email,
-        telephone: personalData.phone,
-        jobTitle: "Programming Mentor & Full Stack Developer",
-        url: typeof window !== "undefined" ? window.location.origin : undefined,
-        knowsAbout: technologies.map((t) => t.name),
-      },
-      {
-        "@type": "EducationalService",
-        name: "Programming Mentorship by Basiturraza Taji",
-        description: "Personalised one-to-one programming classes for beginners, college students, job seekers, and developers.",
-        provider: { "@type": "Person", name: personalData.fullName },
-        areaServed: "Nagpur, Maharashtra, India",
-        availableChannel: [
-          { "@type": "ServiceChannel", serviceUrl: `https://wa.me/${personalData.whatsapp}`, name: "WhatsApp" },
-          { "@type": "ServiceChannel", serviceUrl: `mailto:${personalData.email}`, name: "Email" },
-        ],
-      },
-    ],
-  };
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          name: personalData.fullName,
+          givenName: personalData.name,
+          familyName: personalData.lastName,
+          email: personalData.email,
+          telephone: personalData.phone,
+          jobTitle: "Programming Mentor & Full Stack Developer",
+          url: window.location.origin,
+          knowsAbout: technologies.map((t) => t.name),
+        },
+        {
+          "@type": "EducationalService",
+          name: "Programming Mentorship by Basiturraza Taji",
+          description: "Personalised one-to-one programming classes for beginners, college students, job seekers, and developers.",
+          provider: { "@type": "Person", name: personalData.fullName },
+          areaServed: "Nagpur, Maharashtra, India",
+          availableChannel: [
+            { "@type": "ServiceChannel", serviceUrl: `https://wa.me/${personalData.whatsapp}`, name: "WhatsApp" },
+            { "@type": "ServiceChannel", serviceUrl: `mailto:${personalData.email}`, name: "Email" },
+          ],
+        },
+      ],
+    });
+    document.head.appendChild(script);
+    return () => script.remove();
+  }, []);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
       <section
         id="mentorship"
         className="relative py-24 lg:py-32 overflow-hidden"
